@@ -34,6 +34,6 @@ mysql -u root -e "SHOW DATABASES";
 
 cd /vagrant
 sudo -u vagrant wget -q https://raw.githubusercontent.com/fmba1234/vagrant/master/files/index.html
-sudo -u vagrant wget -q https://raw.githubusercontent.com/fmba1234/vagrant/master/files/php.info
+sudo -u vagrant wget -q https://raw.githubusercontent.com/fmba1234/vagrant/master/files/info.php
 
 systemctl restart httpd
