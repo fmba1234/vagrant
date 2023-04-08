@@ -4,7 +4,7 @@
 yum update -y --exclude=kernel
 
 # Tools
-yum install -y nano git unzip screen
+yum install -y nano git unzip screen wget
 
 # Apache
 yum install -y httpd httpd-level httpd-tools
@@ -36,4 +36,4 @@ cd /vagrant
 sudo -u vagrant wget -q https://raw.githubusercontent.com/fmba1234/vagrant/master/files/index.html
 sudo -u vagrant wget -q https://raw.githubusercontent.com/fmba1234/vagrant/master/files/php.info
 
-systemctl httpd restart
+systemctl restart httpd
