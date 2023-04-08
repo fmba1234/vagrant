@@ -9,27 +9,24 @@ yum install -y nano git unzip screen
 # Apache
 yum install -y httpd httpd-level httpd-tools
 
-chkconfig --add httpd
-chkconfig httpd on
-chkconfig httpd stop
+systemctl enable httpd
+systemctl stop httpd
 
 
 rm -rf /var/www/html
 ln -s /vagrant /var/www/html
 
 
-service httpd start
+systemctl start httpd
 
 # PHP
-# yum install -y php php-cli php-common php-devel php-mysql
+yum install -y php php-cli php-common php-devel php-mysql
 
 # MySQL
-# yum install -y mysql mysql-server mysql-devel
-chkconfig --add mysql
-chkconfig mysql on
+yum install -y mysql mysql-server mysql-devel
 
-
-service mysql start
+systemctl enable mysql
+systemctl start mysql
 
 mysql -u root -e "SHOW DATABASES";
 
@@ -37,6 +34,6 @@ mysql -u root -e "SHOW DATABASES";
 
 cd /vagrant
 sudo -u vagrant wget -q https://raw.githubusercontent.com/fmba1234/vagrant/master/files/index.html
-sudo -u vagrnat wget -q https://raw.githubusercontent.com/fmba1234/vagrant/master/files/php.info
+sudo -u vagrant wget -q https://raw.githubusercontent.com/fmba1234/vagrant/master/files/php.info
 
 service httpd restart
