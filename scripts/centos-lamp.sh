@@ -9,9 +9,8 @@ yum install -y nano git unzip screen
 # Apache
 yum install -y httpd httpd-level httpd-tools
 
-chkconfig --add httpd
-chkconfig httpd on
-chkconfig httpd stop
+systemctl enable httpd
+systemctl stop httpd
 
 
 rm -rf /var/www/html
@@ -24,12 +23,10 @@ systemctl start httpd
 yum install -y php php-cli php-common php-devel php-mysql
 
 # MySQL
-yum install -y mysql mysql-server mysql-devel
+yum install -y mariadb
 
-chkconfig --add mysql
-chkconfig mysql on
-
-chkconfig mysql start
+systemctl enable mariadb
+systemctl start mariadb
 
 mysql -u root -e "SHOW DATABASES";
 
@@ -39,4 +36,4 @@ cd /vagrant
 sudo -u vagrant wget -q https://raw.githubusercontent.com/fmba1234/vagrant/master/files/index.html
 sudo -u vagrant wget -q https://raw.githubusercontent.com/fmba1234/vagrant/master/files/php.info
 
-service httpd restart
+systemctl httpd restart
