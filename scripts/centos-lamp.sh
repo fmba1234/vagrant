@@ -9,8 +9,9 @@ yum install -y nano git unzip screen
 # Apache
 yum install -y httpd httpd-level httpd-tools
 
-systemctl enable httpd
-systemctl stop httpd
+chkconfig --add httpd
+chkconfig httpd on
+chkconfig httpd stop
 
 
 rm -rf /var/www/html
@@ -25,8 +26,10 @@ yum install -y php php-cli php-common php-devel php-mysql
 # MySQL
 yum install -y mysql mysql-server mysql-devel
 
-systemctl enable mysql
-systemctl start mysql
+chkconfig --add mysql
+chkconfig mysql on
+
+chkconfig mysql start
 
 mysql -u root -e "SHOW DATABASES";
 
