@@ -23,7 +23,7 @@ systemctl start httpd
 yum install -y php php-cli php-common php-devel php-mysql
 
 # MySQL
-yum install -y mariadb
+yum install -y mariadb-server
 
 systemctl enable mariadb
 systemctl start mariadb
